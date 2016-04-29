@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    {%load staticfiles%}
+    {% csrf_token %}
+
+    <link href="{% static 'libs/bootstrap/bootstrap.css'%}" rel="stylesheet">
+    <link href="{% static 'decoding/style.css'%}" rel="stylesheet">
+
+    <script type="text/javascript"
+            src="{% static 'libs/jquery/jquery-2.2.2.min.js'%}">
+    </script>
+
+    <script type="text/javascript"
+            src="{% static 'libs/jquery/jquery.textchange.js'%}">
+    </script>
+
+    <script type="text/javascript"
+            src="{% static 'libs/chart/Chart.js'%}">
+    </script>
+
+    <script type="text/javascript"
+            src="{% static 'decoding/mainJS.js'%}">
+    </script>
+
+    <script type="text/javascript"
+            src="{% static 'decoding/send_data.js'%}">
+    </script>
+
+    <script type="text/javascript"
+            src="{% static 'decoding/Barcharts.js'%}">
+    </script>
+</head>
+<body>
+ {% block body %}{%endblock%}
+</body>
+</html>

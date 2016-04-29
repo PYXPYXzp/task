@@ -1,0 +1,55 @@
+{%extends 'decoding/base.html'%}
+{%block title%}Шифр Цезаря{%endblock%}
+
+{%block body%}
+
+<h1>Шифр Цезаря</h1>
+<hr>
+<table  border="0" align="center">
+    <tr align="center">
+        <td rowspan="2">
+            <div class="form-group">
+                <form>
+                    <label for="decoding">
+                        <textarea class="form-control" autofocus id="decoding" rows="20" cols="60"></textarea>
+                    </label>
+                </form>
+            </div>
+        </td>
+        <th valign="bottom">
+            Смещение: <label for="shift">
+            <textarea id="shift"></textarea>
+        </label>
+        </th>
+        <th rowspan="2">
+            <div class="form-group">
+                <label for="result">
+                    <textarea  class="form-control" id="result" readonly rows="20" cols="60"></textarea>
+                </label>
+            </div>
+        </th>
+    </tr>
+    <tr align="center">
+        <td valign="top">
+            <input class="btn btn-primary" id="decode" type="submit" value="Расшифровать">
+            <input class="btn btn-primary" id="encode" type="submit" value="Зашифровать">
+        </td>
+    </tr>
+    <tr>
+
+        <td align="center" colspan="3">
+            <label for="pos_shift">
+                <b id="pos_shift"></b>
+
+            </label>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" height="20">
+            <div id="canvas_container">
+                <canvas id="canvas" height="0" width="200"></canvas>
+            </div>
+        </td>
+    </tr>
+</table>
+{%endblock%}
