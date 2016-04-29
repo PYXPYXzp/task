@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from django.http import JsonResponse
 
 
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
@@ -7,9 +6,7 @@ alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
 # функция шифрует и дешефрует текст на указанное смещение
 def encoding(text, shift):
-    # list_text = list(text)
     encoding_text = []
-    # count_letter = letter_count(text)
     alpha_len = len(alphabet)
     for x in text:
         if x in alphabet:
@@ -18,7 +15,7 @@ def encoding(text, shift):
         else:
             encoding_text.append(x)
     encoding_text = ''.join(encoding_text)
-    return JsonResponse({'result': encoding_text})
+    return {'result': encoding_text}
 
 
 def letter_count(text):
@@ -35,14 +32,13 @@ def letter_count(text):
     max_hit_shift = crack_shift(count_letters, len_text)
     if max_hit_shift == 0:
         max_hit_shift = 'Текст не зашифрован'
-    return JsonResponse({'result_count': count_letters,
-                         'max_hit_shift': max_hit_shift,
-                         'result_count_all': count_all})
+    return {'result_count': count_letters,
+            'max_hit_shift': max_hit_shift,
+            'result_count_all': count_all}
 
 
 # Функция вычисления приблизительного сдвига путем частотного анализа
 def crack_shift(count_letters, len_text):
-    # shift = 0
     # Частота использования букв  в англ. языке
     weight = (6.51, 1.89, 3.06, 5.08, 17.4,
               1.66, 3.01, 4.76, 7.55, 0.27,
@@ -77,7 +73,8 @@ def found_shift(weight, text_weight):
             else:
                 num_shift = (num_letter+num_alphabet)
             # Сравнение исходной частоты использования англ. букв с частотой
-            # использования в тексте введенным пользователем с сдвигом num_shift
+            # использования в тексте введенным пользователем с сдвигом
+            # num_shift
             if int(weight[num_letter]) == int(text_weight[num_shift]):
                 hit_count += 1
 

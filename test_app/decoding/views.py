@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, HttpResponse
+from django.http import JsonResponse
 
 import coding
 
@@ -21,11 +22,11 @@ def decode_text(request):
                 result = coding.encoding(text, shift)
         else:
             return HttpResponse(status=400)
-    return HttpResponse(result)
+    return JsonResponse(result)
 
 
 def change_text(request):
     if request.method == 'POST':
         text = request.POST.get('text')
         count_letter = coding.letter_count(text)
-        return HttpResponse(count_letter)
+        return JsonResponse(count_letter)

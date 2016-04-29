@@ -37,7 +37,6 @@ $(document).ready(function() {
 
 
     function changed_text(text) {
-        //var text = $('#decoding').val();
         var csrftoken = getCookie('csrftoken');
         $.ajax({
             url: '/change_text/',
